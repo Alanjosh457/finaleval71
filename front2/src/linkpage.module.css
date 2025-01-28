@@ -677,3 +677,7 @@ table .inactiveStatus {
   margin-left: 30%;
   display: none;
 }
+
+.copyButton{
+  margin-left: 80%;
+}

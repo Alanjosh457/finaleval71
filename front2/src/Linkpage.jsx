@@ -380,7 +380,7 @@ const Linkpage = () => {
               <tr key={url.shortenedKey}>
                 <td>{formatDate(url.createdAt)}</td>
                 <td className={styles.shortenedText}>{url.originalUrl}</td>
-                <td className={styles.shortenedText}>
+                <td className={styles.shortenedText2}>
                   <a
                     href={`${window.location.origin}#/${url.shortenedKey}`}
                     target="_blank"

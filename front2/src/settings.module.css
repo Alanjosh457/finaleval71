@@ -1,0 +1,91 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+
+  color: white;
+  margin-top: 5%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  position: relative; /* Make the container of the input a positioning context */
+  margin-bottom: 47px;
+  
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+
+}
+.loggers{
+  margin-top: 10%;
+  margin-left: -90%;
+}
+.inputGroup input {
+  width: 80%;
+  padding: 10px 10px 10px 30px; /* Add padding to the left to create space for the lock icon */
+  font-size: 14px;
+  border-radius: 10px;
+  margin-left: 10%;
+}
+
+.loc {
+  position: absolute;
+  left: 55px; /* Position the lock image inside the input field */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the image */
+  width: 20px; /* Adjust the lock icon size */
+  height: 20px;
+}
+
+.updateButton {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 20%;
+}
+
+.updateButton:hover {
+  background: #0056b3;
+}
+.eye1{
+  position: absolute;
+  left: 450px; /* Position the lock image inside the input field */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the image */
+  width: 20px; /* Adjust the lock icon size */
+  height: 20px;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}

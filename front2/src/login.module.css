@@ -1,0 +1,290 @@
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px; /* Spacing between fields */
+  margin-top: 17%;
+  margin-left: 40%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px; /* Spacing between label, input, and error */
+ 
+}
+
+label {
+  font-size: 14px;
+  
+}
+
+input {
+  width: 450px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(122, 122, 122);
+  color: rgb(0, 0, 0);
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 20px;
+ 
+ 
+}
+
+.error {
+  color: red;
+  margin-top: -1px; /* Adjust to reduce extra space */
+  margin-bottom: 3px; /* Adds controlled spacing after the error */
+  position: relative;
+  visibility: visible;
+}
+
+.bns{
+  margin-top: 3%;
+}
+
+button{
+  width: 450px;
+  background-color: #1B48DA;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-left: 40%;
+}
+
+.or1{
+  margin-top: 1%;
+}
+
+.gg{
+  margin-top: 1%;
+}
+.link {
+  color: rgb(55, 55, 210);
+  
+  background: none;
+  border: none;
+  width: 170px;
+  cursor: pointer;
+  margin-left: -1%;
+}
+.alr{
+  margin-left: 41%;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #3B3C51;
+ 
+}
+
+.g1{
+  margin-left: -80%;
+  background-color: white;
+  border-radius: 20px;
+  width: 20px;
+  border: 5px solid white;
+  margin-top: -1%;
+}
+.g3{
+  margin-top: -10%;
+  margin-left: 2%;
+
+}
+.decorativeWrapper {
+  position: relative;
+}
+.po1, .e22, .e1{
+  z-index: -1; /* Keeps decorations behind form elements */
+  position: fixed;
+  pointer-events: none; /* Decorations won't block user interactions */
+}
+
+.po1 {
+  top:16%;
+  left: 5%;
+}
+
+.e22 {
+  top: 10%;
+  right: -2%;
+}
+
+.e1 {
+  bottom: -2%;
+  left: 70%;
+  transform: translateX(-50%);
+}
+
+.back1{
+  z-index: 5;
+}
+.arr2{
+margin-top: 1%;
+cursor: pointer;
+}
+
+
+
+
+.skyy{
+margin-top: -36.7%;
+width: 42%;
+max-height: 102vh;
+
+
+}
+
+.tdy1{
+
+font-size: 1.5em;
+color: #3B3C51;
+}
+
+.jms{
+margin-top: -42%;
+margin-left: 13%;
+font-weight: 500;
+letter-spacing: 1px;
+
+}
+
+input::placeholder {
+color:grey;
+
+font-size: 1.2em;
+opacity: 0.8; /* Adjusts the transparency of the placeholder */
+
+
+}
+
+.logres{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  gap: 60px;
+  margin-left: 67%;
+  margin-top: -2%;
+  background-color: white;
+  color: #3B3C51;
+  font-weight: 600;
+}
+.logi{
+  margin-left: -10%;
+  background-color: white;
+  color: #3B3C51;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.regi{
+  background-color: white;
+  color: #3B3C51;
+  font-weight: 500;
+  font-size: 1.2em;
+
+}
+
+.logi,.regi{
+  width: 85px;
+  cursor: pointer;
+}
+
+
+
+.selected {
+  background-color: #1B48DA; /* Selected background */
+  color: #fff; /* Selected text color */
+}
+
+
+.cu2{
+margin-top: -10%;
+margin-left: 2%;
+}
+
+@media (max-width: 576px) {
+.form {
+  margin: 0 auto;
+  padding: 20px;
+  width: 90%; /* Reduce width for better readability */
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align form elements */
+  gap: 10px; /* Add spacing between input fields */
+}
+
+.field {
+  width: 100%; /* Input fields should span the full width */
+}
+
+.field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.bns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Add spacing between buttons */
+}
+
+
+.link {
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.skyy {
+  display: none; /* Hide the sky image on mobile view */
+}
+
+
+
+.arr2 {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.ar {
+  width: 24px; /* Adjust size of decorative arrow */
+  height: auto;
+}
+}
+@media only screen and (max-width: 600px) {
+.form {
+  margin: 0 auto; /* Centers the form horizontally */
+  width: 80%;
+  margin-left: -10%;
+  margin-top: 13%;
+ /* Adjusts the width to fit within the viewport */
+}
+
+.skyy {
+  display: none; /* Hides the image on mobile devices */
+}
+
+button{
+  width: 200px;
+  margin-left: 50%;
+  margin-top: 10%;
+}
+input{
+  height: 3vh;
+}
+.jms{
+  margin-top: -110%;
+  margin-left: -10%;
+}
+
+.cu2{
+  margin-top: -30%;
+}
+}
+

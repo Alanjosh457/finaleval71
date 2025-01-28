@@ -1,0 +1,678 @@
+.linkerssss{
+   
+  top:0;
+  right: 0;
+  margin-top: 6%;
+  margin-left: 70%;
+  cursor: pointer;
+}
+
+
+/* Modal Backdrop */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+
+
+/* Modal Container */
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  color: #000;
+}
+
+/* Modal Header */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modalHeader h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Input Fields */
+.inputField,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #000;
+}
+
+.textarea {
+  resize: none;
+}
+
+.label {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+}
+
+.required {
+  color: red;
+}
+
+/* Expiration Toggle */
+.expirationContainer {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Modal Footer */
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clearButton {
+  background: #e0e0e0;
+  color: #333;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createButton {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.urlsss{
+  margin-left: 50%;
+}
+
+/* linkpage.module.css */
+/* Adjust container for rounded corners */
+/* Table container */
+/* Table container */
+.urlTableContainer {
+
+max-width: 1200px;
+margin: 0 auto;
+border-radius: 20px; /* Adjust for desired roundness */
+overflow: hidden; /* Ensures the border radius is applied */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+border: 1px solid #e0e0e0; /* Light border */
+margin-left: 20%;
+margin-top: 7%;
+}
+
+.urlTable {
+width: 100%;
+border-collapse: collapse; /* Removes gaps between table cells */
+background-color: #ffffff; /* White background */
+}
+
+.urlTable th,
+.urlTable td {
+text-align: left;
+; /* Spacing for better readability */
+font-size: 14px;
+color: #333333;
+border-bottom: 1px solid #f2f2f2; /* Subtle row dividers */
+padding: 20px;
+
+}
+
+.urlTable th {
+background-color: #F3F7FD;/* Light gray background for headers */
+font-weight: bold;
+font-size: 1.5em;
+}
+
+.urlTable tr:last-child td {
+border-bottom: none; /* Removes border from the last row */
+}
+
+.shortenedText {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+max-width: 140px
+}
+
+.urlTable tr:hover {
+background-color: #f7f7f7; /* Hover effect */
+}
+.editButton,.deleteButton{
+margin-left: -10%;
+width: 50px;
+background-color: white;
+fill: none;
+
+}
+
+.deleteButton{
+margin-left: 10%;
+}
+
+
+
+.pagination {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+
+width: 80px;
+margin-left: 55%;
+bottom: 0;
+margin-top: 7%;
+}
+
+.pageButton {
+
+background-color: white;
+color: black;
+font-size: 16px;
+padding: 6px 12px;
+border-radius: 4px;
+cursor: pointer;
+transition: all 0.2s ease;
+box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+border: 1px solid rgb(181, 181, 181);
+
+}
+
+.pageButton:hover {
+background-color: #f0f0f0;
+}
+
+.pageButton:disabled {
+color: #c0c0c0;
+cursor: not-allowed;
+}
+
+.activePage {
+color: #4a90e2;
+font-weight: bold;
+border: 2px solid #4a90e2;
+border-radius: 4px;
+}
+
+.ellipsis {
+font-size: 1.2em;
+color: #000000;
+padding: 6px 12px;
+font-weight: bold;
+
+background-color: white;
+padding: 6px 12px;
+
+
+
+}
+
+.urlTable td.cc1 {
+padding-left: 40px; /* Adjust as needed */
+}
+
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+padding-right: 170px;
+border: none;
+margin-left: -1%;
+
+
+}
+
+.modalContent {
+max-width: 500px;
+background: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+animation: fadeIn 0.3s ease;
+padding: 10px;
+max-height: 600px;
+}
+
+.modalHeader {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #3B3C51;
+color: white;
+padding: 1rem;
+width: 600px;
+margin-left: -10%;
+margin-top: -5%;
+height: 5vh;
+
+
+
+}
+
+.closeButton {
+font-size: 2.5rem;
+background: none;
+color: white;
+border: none;
+cursor: pointer;
+margin-top: -3%;
+margin-left: 52%;
+margin-top: -1%;
+}
+
+.formGroup {
+padding: 1rem;
+}
+
+label {
+display: block;
+font-weight: bold;
+margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+width: 100%;
+padding: 0.5rem;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-bottom: 1rem;
+color: #000;
+
+}
+
+textarea {
+resize: none;
+height: 80px;
+margin-top: -1%;
+}
+
+.toggleContainer {
+display: inline-flex;
+align-items: center;
+margin-left: 1rem;
+}
+
+#linkExpirationToggle {
+display: none;
+}
+
+#linkExpirationToggle + label {
+width: 34px;
+height: 20px;
+background: #ccc;
+border-radius: 10px;
+position: relative;
+cursor: pointer;
+}
+
+#linkExpirationToggle + label::after {
+content: "";
+position: absolute;
+top: 3px;
+left: 3px;
+width: 14px;
+height: 14px;
+background: white;
+border-radius: 50%;
+transition: 0.3s;
+}
+
+#linkExpirationToggle:checked + label {
+background: #007bff;
+}
+
+#linkExpirationToggle:checked + label::after {
+transform: translateX(14px);
+}
+
+#linkExpirationDate {
+margin-top: 0.5rem;
+width: 100%;
+
+}
+
+.modalFooter {
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+background: #f8f8f8;
+width: 500px;
+margin-top: 0;
+margin-left: -5%;
+
+
+
+}
+
+.modalBody {
+flex: 1; /* Allow content to grow and shrink dynamically */
+overflow-y: auto; /* Add scroll if content overflows */
+}
+
+
+.clearButton {
+background: none;
+color: #333;
+border: none;
+border-radius: 4px;
+padding: 0.5rem 1rem;
+cursor: pointer;
+margin-left: -25%;
+
+}
+
+.createButton {
+background: #1B48DA;
+color: white;
+border: none;
+border-radius: 4px;
+padding: 5px;
+cursor: pointer;
+width: 150px;
+margin-left: -70%;
+
+
+}
+
+.calendarInput{
+margin-top: -50%;
+}
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
+.newh{
+color: white;
+white-space: nowrap;
+}
+.modalHeader .newh {
+color: white !important;
+margin-left: 8%;
+margin-top: 5%;
+}
+.toggleContainer{
+margin-left: 95%;
+margin-top: -200%;
+}
+
+/* Toggle switch container */
+.switch {
+position: relative;
+display: inline-block;
+width: 40px;
+height: 20px;
+
+}
+
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: 0.4s;
+border-radius: 20px;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 14px;
+width: 14px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: 0.4s;
+border-radius: 50%;
+}
+
+input:checked + .slider {
+background-color: #182aa0;
+}
+
+input:checked + .slider:before {
+transform: translateX(20px);
+}
+.le{
+margin-top: -7.5%;
+padding-bottom: 20px;
+}
+
+.spns{
+color: red;
+}
+
+.shortenedLinkContainer {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.copyButton {
+color: white;
+border: none;
+border-radius: 4px;
+padding: 4px 8px;
+cursor: pointer;
+font-size: 12px;
+transition: transform 0.2s ease-in-out; /* Smooth resizing effect */
+margin-left: -20%;
+width: 40px;
+background-color: white;
+opacity: 0.8;
+margin-top: -12%;
+}
+
+.copyButton:hover {
+transform: scale(1.2); /* Increases the size of the button by 20% */
+}
+
+
+.shlink{
+margin-top: -20%;
+}
+.shortenedText a {
+/* Adjust this value to move the link upwards */
+padding-bottom: 30px;
+}
+.shortenedText2{
+padding-bottom: 30px;
+}
+.copyb2{
+margin-left: -40%;
+position: relative; 
+}
+
+
+.modalContent2 {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+padding: 20px;
+width: 400px;
+max-width: 90%;
+text-align: center;
+animation: scaleUp 0.3s ease-out;
+}
+
+.modalContent2 h2 {
+font-size: 18px;
+margin-bottom: 10px;
+color: #333;
+}
+
+.modalContent2 p {
+font-size: 16px;
+color: #555;
+margin-bottom: 20px;
+}
+
+.modalContent2 button {
+width: 150px;
+margin: 0 10px;
+border: none;
+border-radius: 4px;
+font-size: 14px;
+cursor: pointer;
+transition: background-color 0.2s ease;
+font-size: 1.2em;
+font-weight: bold;
+}
+
+.modalContent2 button:first-of-type {
+background-color: #1B48DA;
+color: white;
+}
+
+.modalContent2 button:first-of-type:hover {
+background-color: #288dd6;
+}
+
+.modalContent2 button:last-of-type {
+background-color: #f1f1f1;
+color: #333;
+}
+
+.modalContent2button:last-of-type:hover {
+background-color: #e2e2e2;
+}
+
+@keyframes scaleUp {
+from {
+  transform: scale(0.9);
+  opacity: 0;
+}
+to {
+  transform: scale(1);
+  opacity: 1;
+}
+}
+td{
+border-right: 1px solid rgb(235, 234, 234);
+}
+
+.activeStatus {
+color: green;
+font-weight: bold;
+}
+
+.inactiveStatus {
+color: orange;
+font-weight: bold;
+}
+table .activeStatus {
+color: green !important;
+font-weight: bold;
+}
+
+table .inactiveStatus {
+color: orange !important;
+font-weight: bold;
+}
+.urlTableContainer1{
+  margin-top: 5%;
+  width: 60%;
+}

@@ -1,0 +1,88 @@
+.dashboardContainer {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+ 
+  border-radius: 8px;
+  
+  margin-top: 10%;
+ 
+  margin-left: 20%;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+color: #1B48DA;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.chartWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.bars {
+  fill: #007bff;
+}
+.clicker{
+  color: black;
+  font-size: 1.2em;
+
+ 
+}
+
+.dashboardContainer {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.chartSection {
+  display: flex;
+  gap: 20px;
+}
+
+.clicksChartContainer,
+.deviceChartContainer {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  border: 1px solid rgb(222, 210, 210);
+  background-color: #fff;
+  width: 400px;
+  height: 50vh;
+}
+
+.clicksChartContainer h3,
+.deviceChartContainer h3 {
+
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #1B48DA;
+  
+}
+.clickers{
+  margin-left: -50%;
+}
+
+.title{
+  margin-left:-80%;
+  padding-right: 10px;
+  width: 350px;
+  color: #000;
+}
+.tcs{
+  margin-left: 5%;
+  color: #1B48DA;
+}

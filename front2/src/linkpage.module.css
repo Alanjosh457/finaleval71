@@ -180,6 +180,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
   border: 1px solid #e0e0e0; /* Light border */
   margin-left: 20%;
+  margin-top: 10%;
 }
 
 .urlTable {
@@ -684,4 +685,8 @@ table .inactiveStatus {
 .shortenedText2{
 width: 70px;
 
+
+}
+.linkerssss{
+  display: none
 }

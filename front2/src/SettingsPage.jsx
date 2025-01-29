@@ -14,7 +14,12 @@ const SettingsPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(localStorage.getItem('phone') || '');
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false); // State for modal visibility
+
   console.log(localStorage.getItem('phone')); // Set phone from localStorage
+
+  const openDeleteModal = () => setIsDeleteModalOpen(true);
+  const closeDeleteModal = () => setIsDeleteModalOpen(false);
 
   // Prefill the form with user data from the token
   useEffect(() => {
@@ -110,60 +115,86 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h2>Settings</h2>
-      <form onSubmit={handleUpdate} className={styles.form}>
-        <div className={styles.inputGroup}>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your new name"
-          />
-        </div>
-        <div className={styles.inputGroup}>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your new email"
-          />
-        </div>
-        <div className={styles.inputGroup}>
-          <input
-            type="text"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Enter your new phone number"
+    <>
+      <div className={styles.container}>
+        <h2>Settings</h2>
+        <form onSubmit={handleUpdate} className={styles.form}>
+          <div className={styles.inputGroup}>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your new name"
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your new email"
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <input
+              type="text"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Enter your new phone number"
+            />
+          </div>
+
+          <button type="submit" className={styles.updateButton}>
+            Save Changes
+          </button>
+        </form>
+
+        {/* Logout Button */}
+        <div className={styles.loggers}>
+          <img
+            src={logout}
+            alt="Logout"
+            className={styles.logoutImage}
+            onClick={handleLogout}
           />
         </div>
 
-        <button type="submit" className={styles.updateButton}>
-          Save Changes
-        </button>
-      </form>
-
-      {/* Logout Button */}
-      <div className={styles.loggers}>
-        <img
-          src={logout}
-          alt="Logout"
-          className={styles.logoutImage}
-          onClick={handleLogout}
-        />
+        {/* Delete Account Button */}
+        <div className={styles.delers}>
+          <button
+            className={styles.deleteButton}
+            onClick={openDeleteModal} // Open the modal on click
+          >
+            Delete Account
+          </button>
+        </div>
       </div>
 
-      {/* Delete Account Button */}
-      <button
-        className={styles.deleteButton}
-        onClick={handleDeleteAccount}
-      >
-        Delete Account
-      </button>
-    </div>
+      {/* Delete Confirmation Modal */}
+      {isDeleteModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h3>Are you sure you want to delete your account?</h3>
+        
+            <button
+              className={styles.confirmDeleteButton}
+              onClick={handleDeleteAccount}
+            >
+              YES
+            </button>
+            <button
+              className={styles.cancelDeleteButton}
+              onClick={closeDeleteModal} // Close the modal if cancel is clicked
+            >
+      NO
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

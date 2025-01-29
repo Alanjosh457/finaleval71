@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styles from './linkpage.module.css';
 import { shortenUrl, fetchUrls,searchUrls } from './services';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import penc from './images/pencil.png';
 import tbin from './images/tbin.png';
 import copyb from './images/copyb.png';
 import Dashboard from './Dashboard';
-import { useLocation } from 'react-router-dom';
 
 
 const Linkpage = () => {
@@ -30,10 +29,18 @@ const Linkpage = () => {
   const toggleModal = () => setIsModalOpen((prev) => !prev);
   const toggleEditModal = () => setIsEditModalOpen((prev) => !prev);
   const toggleDeleteModal = () => setIsDeleteModalOpen((prev) => !prev);
+ 
+ 
   const toggleExpiration = () => {
     setIsExpirationEnabled((prev) => !prev);
+    
+    if (!isExpirationEnabled) {
+      setExpirationDate(''); // Clear expiration date if the toggle is disabled
+    }
   };
 
+  
+ 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const queryFromURL = queryParams.get('search');
@@ -41,27 +48,47 @@ const Linkpage = () => {
 
   const [expirationDate, setExpirationDate] = useState('');
   // Fetch URLs on mount
+
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchUrls();
-        const updatedUrls = data.map(url => {
-          const currentDate = new Date();
-          const expiration = new Date(url.expirationDate);
-          
-          // Set status to inactive if expired, otherwise active
-          url.status = expiration < currentDate ? 'inactive' : 'active';
-          return url;
-        });
-        setUrls(data);
-      } catch (error) {
-        console.error('Error fetching URLs:', error);
-      }
-    };
-
-    fetchData();
+    const savedUrls = JSON.parse(localStorage.getItem('urls'));
+  
+    if (savedUrls && savedUrls.length > 0) {
+      // If URLs are saved in localStorage, use them
+      setUrls(savedUrls);
+    } else {
+      // If no URLs in localStorage, fetch from the API
+      const fetchData = async () => {
+        try {
+          const data = await fetchUrls();
+          const updatedUrls = data.map((url) => {
+            const currentDate = new Date();
+            const expiration = new Date(url.expirationDate);
+  
+            // Set status to inactive if expired, otherwise active
+            url.status = expiration < currentDate ? 'inactive' : 'active';
+            return url;
+          });
+          setUrls(updatedUrls);
+          localStorage.setItem('urls', JSON.stringify(updatedUrls)); // Persist the fetched data to localStorage
+        } catch (error) {
+          console.error('Error fetching URLs:', error);
+        }
+      };
+  
+      fetchData();
+    }
   }, []);
+  
 
+  useEffect(() => {
+    if (urls.length > 0) {
+      localStorage.setItem('urls', JSON.stringify(urls)); // Persist updated URLs to localStorage
+    }
+  }, [urls]); // This runs every time `urls` state changes
+  
+
+  // Save URLs to localStorage whenever the `urls` state changes
 
   const filteredUrls = urls.filter((url) =>
     url.remarks.toLowerCase().includes(searchQuery.toLowerCase())
@@ -88,74 +115,92 @@ const Linkpage = () => {
     }
   };
 
+  
   const handleEditClick = (url) => {
     setSelectedUrl(url);
     setDestinationUrl(url.originalUrl);  // Prefill the destination URL field
     setEditRemarks(url.remarks);          // Prefill the remarks field
-    toggleEditModal();
+    
+    // Set expiration date and toggle expiration based on the selected URL
+    if (url.expirationDate) {
+      setExpirationDate(url.expirationDate); // Prefill expiration date if exists
+      setIsExpirationEnabled(true);           // Enable expiration toggle if it has expiration
+    } else {
+      setExpirationDate('');                  // Clear expiration date if it does not have expiration
+      setIsExpirationEnabled(false);          // Disable expiration toggle
+    }
+  
+    toggleEditModal();  // Open the edit modal
   };
   
 
-  
   const handleSaveEdits = () => {
-    // Only update the url data if destinationUrl or remarks has changed
-    if (destinationUrl !== selectedUrl.originalUrl || editRemarks !== selectedUrl.remarks) {
-      setUrls((prevUrls) =>
-        prevUrls.map((url) =>
-          url.shortenedKey === selectedUrl.shortenedKey
-            ? {
-                ...url,
-                remarks: editRemarks, // Update the remarks
-                originalUrl: destinationUrl, // Update the original URL
-              }
-            : url
-        )
+    if (destinationUrl !== selectedUrl.originalUrl || editRemarks !== selectedUrl.remarks || expirationDate !== selectedUrl.expirationDate) {
+      const updatedUrls = urls.map((url) =>
+        url.shortenedKey === selectedUrl.shortenedKey
+          ? {
+              ...url,
+              remarks: editRemarks,
+              originalUrl: destinationUrl,
+              expirationDate: isExpirationEnabled ? expirationDate : null, // Update expiration date only if enabled
+              status: isExpirationEnabled && new Date(expirationDate) < new Date() ? 'inactive' : 'active', // Update status based on expiration date
+            }
+          : url
       );
-      toggleEditModal(); // Close the modal
+      setUrls(updatedUrls); // Update the state with the new URLs
+      localStorage.setItem('urls', JSON.stringify(updatedUrls)); // Persist updated URLs to localStorage
+      toggleEditModal(); // Close the edit modal
     }
   };
-
+  
 
   const handleCreateLink = async () => {
     try {
       const urlPattern = /^(https?:\/\/)[^\s$.?#].[^\s]*$/;
       if (!urlPattern.test(destinationUrl)) {
         alert('Please enter a valid URL starting with http:// or https://');
-        return}
-      const data = { originalUrl: destinationUrl, remarks,   expirationDate: isExpirationEnabled ? expirationDate : null  };
+        return;
+      }
+      const data = { originalUrl: destinationUrl, remarks, expirationDate: isExpirationEnabled ? expirationDate : null };
       const result = await shortenUrl(data);
       const newShortenedUrl = result.shortenedUrl;
       const shortenedKey = newShortenedUrl.split('/').pop();
+      
       const newUrl = {
         originalUrl: destinationUrl,
         shortenedKey,
         shortenedUrl: newShortenedUrl,
         remarks,
         clickCount: 0,
-        status: 'active',
+        status: isExpirationEnabled && new Date(expirationDate) < new Date() ? 'inactive' : 'active', // Set status based on expiration date
         createdAt: new Date().toISOString(),
         expirationDate: expirationDate,
-
       };
+  
       setUrls((prevUrls) => [...prevUrls, newUrl]);
+      localStorage.setItem('urls', JSON.stringify([...urls, newUrl])); // Persist new URL to localStorage
       toggleModal(); // Close the modal after creating the link
     } catch (error) {
       console.error('Error creating link:', error);
     }
   };
+  
 
-  const handleDeleteClick = (url) => {
-    setSelectedUrl(url);
-    toggleDeleteModal();
-  };
-
+  
   const confirmDelete = () => {
-    setUrls((prevUrls) =>
-      prevUrls.filter((url) => url.shortenedKey !== selectedUrl.shortenedKey)
-    );
+    // Filter out the URL to be deleted from the list
+    const updatedUrls = urls.filter((url) => url.shortenedKey !== selectedUrl.shortenedKey);
+    
+    // Update the state with the new URLs
+    setUrls(updatedUrls);
+    
+    // Persist the updated list to localStorage
+    localStorage.setItem('urls', JSON.stringify(updatedUrls));
+    
+    // Close the delete modal
     toggleDeleteModal();
   };
-
+  
   const formatDate = (dateString) => {
     const options = {
       year: 'numeric',
@@ -177,11 +222,22 @@ const Linkpage = () => {
     setIsExpirationEnabled(false);
     setExpirationDate('');
   };
-  
+
+  useEffect(() => {
+    // Check if the modal state is passed via location state
+    if (location.state?.isModalOpen) {
+      setIsModalOpen(true); // Open modal immediately
+    }
+  }, [location]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('urls'); // Clear stored URLs
+    navigate('/'); // Redirect to login page
+  };
   return (
     <>
-      <button className={styles.linkerssss} onClick={toggleModal}>
-        Create link
+      <button className={styles.linkerssss} onClick={handleLogout}>
+      logout
       </button>
       <input
         type="text"

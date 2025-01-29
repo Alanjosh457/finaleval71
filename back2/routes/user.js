@@ -10,7 +10,7 @@ const jwt=require("jsonwebtoken")
 const env=require("dotenv")
 const isLoggedIn = require("../middleware/auth"); 
 const UAParser = require("ua-parser-js");
-
+const { JWT_SECRET } = process.env; 
 env.config()
 const { nanoid } = require("nanoid");
 
@@ -250,13 +250,100 @@ router.get("/search", isLoggedIn, async (req, res) => {
   }
 });
 
+ // The secret key for decoding the JWT token
+
+router.put("/updateUrl/:id", async (req, res) => {
+  try {
+    // Extract the token from the authorization header
+    const token = req.headers['authorization']?.split(' ')[1];
+    
+    // Debugging: Check what token is being received
+    console.log("Token received:", token);
+    
+    if (!token) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    // Decode and verify the token
+    const decoded = jwt.verify(token, JWT_SECRET);
+    if (!decoded) {
+      return res.status(401).json({ message: "Invalid token" });
+    }
+
+    // Debugging: Check the decoded payload
+    console.log("Decoded token:", decoded);
+
+    // Extract the user._id from the decoded token
+    const userId = decoded._id;
+
+    const { id } = req.params; // The URL ID from the URL params
+    const { originalUrl, remarks, expirationDate } = req.body; // Data from the request body
+
+    // Validate expiration date if provided
+    let expiration = null;
+    if (expirationDate) {
+      expiration = new Date(expirationDate);
+      if (isNaN(expiration.getTime())) {
+        return res.status(400).json({ message: "Invalid expiration date" });
+      }
+    }
+
+    // Check if the URL exists and belongs to the logged-in user using the user._id
+    const urlToUpdate = await Url.findOne({ 
+      _id: id, 
+      'user': userId  // Compare user._id directly
+    });
+
+    if (!urlToUpdate) {
+      return res.status(404).json({ message: "URL not found or unauthorized" });
+    }
+
+    // Update the URL fields
+    urlToUpdate.originalUrl = originalUrl || urlToUpdate.originalUrl;
+    urlToUpdate.remarks = remarks || urlToUpdate.remarks;
+    urlToUpdate.expirationDate = expiration || urlToUpdate.expirationDate;
+
+    // Save the updated URL
+    await urlToUpdate.save();
+
+    return res.status(200).json({
+      message: "URL updated successfully",
+      updatedUrl: urlToUpdate,
+    });
+  } catch (error) {
+    console.error("Error updating URL:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+});
 
 
 
 
 
+// Delete URL API
+router.delete("/deleteUrl/:id", isLoggedIn, async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    // Find and delete the URL, ensuring it belongs to the logged-in user
+    const deletedUrl = await Url.findOneAndDelete({
+      _id: id,
+      user: req.user._id, // Ensure the URL belongs to the logged-in user
+    });
 
+    if (!deletedUrl) {
+      return res.status(404).json({ message: "URL not found or unauthorized" });
+    }
+
+    return res.status(200).json({
+      message: "URL deleted successfully",
+      deletedUrl,
+    });
+  } catch (error) {
+    console.error("Error deleting URL:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+});
 
 
 

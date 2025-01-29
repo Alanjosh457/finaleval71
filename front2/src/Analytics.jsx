@@ -62,7 +62,7 @@ const Analytics = () => {
         <table className={styles.urlTable}>
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Timestamps</th>
               <th>Original Link</th>
               <th>Shortened Link</th>
               <th>IP Addresses</th>
@@ -74,7 +74,7 @@ const Analytics = () => {
               <tr key={url.shortenedKey}>
                 <td>{formatDate(url.createdAt)}</td>
                 <td className={styles.shortenedText}>{url.originalUrl}</td>
-                <td className={styles.shortenedText}>
+                <td className={styles.shortenedText2}>
                   <a
                     href={`${window.location.origin}#/${url.shortenedKey}`}
                     target="_blank"
@@ -85,7 +85,7 @@ const Analytics = () => {
                   </a>
                 </td>
                 {/* Display IP Addresses */}
-                <td>{url.ipAddresses.join(', ') || 'No IP data'}</td>
+                <td className={styles.ips}>{url.ipAddresses.join(', ') || 'No IP data'}</td>
                 {/* Display User OS */}
                 <td>
                   {Object.entries(url.osClicks).map(([os, count]) => (

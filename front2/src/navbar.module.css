@@ -136,8 +136,9 @@ background-color: #1B48DA;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding-bottom: 5px;
-  margin-left: 110%;
+  padding-bottom: 1px;
+  margin-left: 10%;
+  
   
 }
 
@@ -151,7 +152,7 @@ background-color: #1B48DA;
   
 }
 .newcre::after{
-  margin-top: -25%;
+  margin-top: -20%;
 }
 .srch{
   width: 200px;
@@ -214,3 +215,17 @@ margin-left: 12%;
 }
 
 
+.newcre{
+  cursor: pointer;
+ 
+}
+.crenew{
+  cursor: pointer;
+  background-color: #1B48DA;
+  color:white;
+  font-size: 1.2em;
+  padding: 15px;  border-radius: 5px;
+  margin-left: 10%;
+  width: 120px;
+ 
+}

@@ -86,6 +86,11 @@ const Navbar = () => {
     navigate(`/link/${user._id}?search=${query}`);
   };
 
+  const handleCreateNewClick = () => {
+    console.log('Create New button clicked!'); 
+    navigate(`/link/${user._id}/`, { state: { isModalOpen: true } }); // Navigate to /link and pass modal state
+  };
+
   return (
     <>
       <img src={cul1} className={styles.cul2} />
@@ -136,7 +141,7 @@ const Navbar = () => {
             <span className={styles.date}>{currentDate}</span>
           </li>
           <li>
-            <button className={styles.newcre}>Create new</button>
+            <button className={styles.newcre}  onClick={ handleCreateNewClick}>Create new</button>
           </li>
           <li>
             <input
@@ -153,7 +158,7 @@ const Navbar = () => {
           </li>
           <li className={styles.uci}>
             {/* Circle with initials */}
-            <div className={styles.userCircle}>{userInitials}</div>
+            <div className={styles.userCircle} >{userInitials}</div>
           </li>
         </ul>
       </nav>

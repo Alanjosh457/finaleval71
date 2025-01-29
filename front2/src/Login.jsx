@@ -119,76 +119,80 @@ const Login = () => {
  
   return (
     <>
-     <div className={styles.arr2} onClick={handleBackNavigation}>
-      <img src={arr} className={styles.ar} alt="Decorative Arrow" onClick={handleBackNavigation}/>
-          </div>
+    
            <center>
+         
           <form className={styles.form} onSubmit={handleClick}>
             <div className={styles.forms}>
-           
-               
+             
     
               <div className={styles.field}>
-            
+               
                 <input
                   id="email"
                   value={formData.email}
                   type="text"
-                  placeholder="Email"
+                  placeholder="Email id"
                   onChange={handleChange}
+                  className={styles.namer}
                 />
-                {formErrors.email && <p className={styles.error}>{formErrors.email}</p>}
+                {formErrors.email && <p className={styles.error}>*{formErrors.email}</p>}
               </div>
     
+             
               <div className={styles.field}>
-                
+               
                 <input
                   id="password"
                   value={formData.password}
                   type="password"
                   placeholder="Password"
                   onChange={handleChange}
+                  className={styles.namer}
                 />
-                {formErrors.password && <p className={styles.error}>{formErrors.password}</p>}
+                {formErrors.password && <p className={styles.error}>*{formErrors.password}</p>}
               </div>
     
-             
+              
             </div>
             <div className={styles.bns}>
-              <button disabled={loading} type="submit">
-                {loading ? 'Loading...' : 'Login'}
+              <button disabled={loading} type="submit" className={styles.regger}>
+                {loading ? 'Loading...' : 'Register'}
               </button>
             
               <div className={styles.alr}>
-              Don't have an account?
-                <button className={styles.link} onClick={logger}>
-                  Register now
+Don't have an account?                <button className={styles.link} onClick={logger}  >
+            SignUp
                 </button>
               </div>
             </div>
           </form>
         </center>
-     <div><img src={sky1} className={styles.skyy} /></div>
-        <div className={styles.jms}>   <h1 className={styles.tdy1}>Login</h1></div>
     
-        <div className={styles.cu2}><img src={cu1} className={styles.cu3}/></div>
-
-          <div className={styles.logres}>
-                <button
-                  className={`${styles.regi} ${selectedButton === 'regi' ? styles.selected : ''}`}
-                  onClick={() => handleButtonClick('regi','/register')}
-                >
-                  SignUp
-                </button>
-                <button
-                  className={`${styles.logi} ${selectedButton === 'logi' ? styles.selected : ''}`}
-                  onClick={() => handleButtonClick('logi', '/login')}
-                >
-                  Login
-                </button>
-              </div>
+    
+        <div><img src={sky1} className={styles.skyy} /></div>
      
     
+    
+    
+      
+          <div className={styles.smj3}>Login</div>
+          
+      <div className={styles.cu2}><img src={cu1} className={styles.cu3}/></div> 
+      <div className={styles.logres}>
+            <button
+              className={`${styles.regi} ${selectedButton === 'regi' ? styles.selected : ''}`}
+              onClick={() => handleButtonClick('regi','/register')}
+            >
+              SignUp
+            </button>
+            <button
+              className={`${styles.logi} ${selectedButton === 'logi' ? styles.selected : ''}`}
+              onClick={() => handleButtonClick('logi', '/')}
+            >
+              Login
+            </button>
+          </div>
         </>
       
  

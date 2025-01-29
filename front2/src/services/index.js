@@ -22,6 +22,7 @@ export const login = async (data) => {
         body: JSON.stringify(data)
     })
     if (response.status === 200 || response.status === 400) {
+     
         return response.json()
     }
     throw new Error('Something went wrong')
@@ -125,6 +126,65 @@ export const searchUrls = async (searchTerm) => {
   }
 };
 
+
+export const updateUrl = async (id, data, token) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/user/updateUrl/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Assuming you're using JWT for authentication
+      },
+      body: JSON.stringify(data) // Send updated data (e.g., originalUrl, remarks, expirationDate)
+    });
+
+    // Check if the response is successful (status 200)
+    if (response.status === 200) {
+      const updatedUrl = await response.json();
+      console.log('URL updated successfully:', updatedUrl); // Log the updated URL object
+      return updatedUrl; // Returns the updated URL object
+    }
+
+    // Log for 404 errors (URL not found or unauthorized)
+    if (response.status === 404) {
+      const errorData = await response.json();
+      console.error('Error 404: URL not found or unauthorized', errorData);
+      throw new Error('URL not found or unauthorized');
+    }
+
+    // Log for unexpected status codes and throw generic error
+    const errorData = await response.json();
+    console.error(`Unexpected Error: ${response.status}`, errorData);
+    throw new Error('Something went wrong');
+    
+  } catch (error) {
+    // Log any other errors (network errors, etc.)
+    console.error('Error during API call:', error);
+    throw error; // Re-throw the error for further handling by the caller
+  }
+};
+
+
+
+export const deleteUrl = async (id, token) => {
+  const response = await fetch(`${BACKEND_URL}/api/user/deleteUrl/${id}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Assuming you're using JWT for authentication
+      }
+  });
+
+  if (response.status === 200) {
+      return response.json(); // Returns the deleted URL object
+  }
+
+  if (response.status === 404) {
+      throw new Error('URL not found or unauthorized');
+  }
+
+  throw new Error('Something went wrong');
+};
 
 
 

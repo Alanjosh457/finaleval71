@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px; /* Spacing between fields */
-  margin-top: 17%;
+  gap: 10px; /* Spacing between fields */
+  margin-top: 5%;
   margin-left: 40%;
 }
 
@@ -12,7 +12,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 3px; /* Spacing between label, input, and error */
- 
 }
 
 label {
@@ -21,14 +20,14 @@ label {
 }
 
 input {
-  width: 450px;
+ width: 150%;
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(122, 122, 122);
   color: rgb(0, 0, 0);
   height: 40px;
   border-radius: 5px;
-  padding-left: 20px;
- 
+  
+  
  
 }
 
@@ -65,7 +64,7 @@ button{
   
   background: none;
   border: none;
-  width: 170px;
+  width: 100px;
   cursor: pointer;
   margin-left: -1%;
 }
@@ -75,7 +74,6 @@ button{
   font-size: 1.1em;
   font-weight: 600;
   color: #3B3C51;
- 
 }
 
 .g1{
@@ -124,15 +122,53 @@ margin-top: 1%;
 cursor: pointer;
 }
 
-
+.logres{
+display: flex;
+flex-direction: row;
+width: 500px;
+gap: 60px;
+margin-left: 67%;
+margin-top: -2%;
+background-color: white;
+color: #3B3C51;
+font-weight: 600;
+}
 
 
 .skyy{
-margin-top: -36.7%;
+margin-top: -35.5%;
 width: 42%;
-max-height: 102vh;
+max-height: 110vh;
 
 
+
+}
+
+.logi{
+margin-left: -10%;
+background-color: white;
+color: #3B3C51;
+font-weight: 500;
+font-size: 1.2em;
+}
+.regi{
+background-color: white;
+color: #3B3C51;
+font-weight: 500;
+font-size: 1.2em;
+
+}
+
+.logi,.regi{
+width: 185px;
+cursor: pointer;
+}
+
+
+
+.selected {
+background-color: #1B48DA; /* Selected background */
+color: #fff; /* Selected text color */
 }
 
 .tdy1{
@@ -143,10 +179,9 @@ color: #3B3C51;
 
 .jms{
 margin-top: -42%;
-margin-left: 13%;
+margin-left: 20%;
 font-weight: 500;
 letter-spacing: 1px;
-
 }
 
 input::placeholder {
@@ -158,47 +193,8 @@ opacity: 0.8; /* Adjusts the transparency of the placeholder */
 
 }
 
-.logres{
-  display: flex;
-  flex-direction: row;
-  width: 500px;
-  gap: 60px;
-  margin-left: 67%;
-  margin-top: -2%;
-  background-color: white;
-  color: #3B3C51;
-  font-weight: 600;
-}
-.logi{
-  margin-left: -10%;
-  background-color: white;
-  color: #3B3C51;
-  font-weight: 500;
-  font-size: 1.2em;
-}
-.regi{
-  background-color: white;
-  color: #3B3C51;
-  font-weight: 500;
-  font-size: 1.2em;
-
-}
-
-.logi,.regi{
-  width: 85px;
-  cursor: pointer;
-}
-
-
-
-.selected {
-  background-color: #1B48DA; /* Selected background */
-  color: #fff; /* Selected text color */
-}
-
-
 .cu2{
-margin-top: -10%;
+margin-top: -9%;
 margin-left: 2%;
 }
 
@@ -279,12 +275,54 @@ input{
   height: 3vh;
 }
 .jms{
-  margin-top: -110%;
+  margin-top: -90%;
   margin-left: -10%;
 }
+}
 
+.namer{
+width: 450px;
+height: 4vh;
+}
+.regger{
+width: 450px;
+height: 7vh;
+font-size: 1.2em;
+}
+.link{
+font-size: 1.2em;
+}
+.alr{
+margin-top: 2%;
+}
+.jms{
+margin-top: -47%;
+margin-left: 50%;
+}
+
+.smj3{
+margin-top: -47%;
+color: #3B3C51;
+margin-left: 50%;
+font-weight: bold;
+font-family: 'Manrope';
+font-size: 2em;
+}
 .cu2{
-  margin-top: -30%;
-}
+margin-top: -5%;
 }
 
+.forms{
+margin-top: 13%;
+}
+
+.error {
+  color: red;
+  position: absolute;
+  font-size: 0.8em;
+  height: 16px; /* Fixed height to prevent layout shifts */
+  line-height: 16px;
+  margin-top: 3%;
+  margin-left: 1%;
+ /* Hide by default */
+}

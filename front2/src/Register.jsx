@@ -41,7 +41,7 @@ const Register = () => {
   }
 
   const logger = () => {
-    navigate('/login');
+    navigate('/');
   };
 
   const validateField = (field, value) => {
@@ -141,9 +141,7 @@ const Register = () => {
   const gi='http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767401/va2rrv1gxdbsdr3fsamg.png'
   return (
     <>
-    <div className={styles.arr2} onClick={handleBackNavigation}>
-  <img src={arr} className={styles.ar} alt="Decorative Arrow" onClick={handleBackNavigation}/>
-      </div>
+ 
        <center>
      
       <form className={styles.form} onSubmit={handleClick}>
@@ -156,8 +154,9 @@ const Register = () => {
               type="text"
               placeholder="Name"
               onChange={handleChange}
+              className={styles.namer}
             />
-            {formErrors.name && <p className={styles.error}>{formErrors.name}</p>}
+            {formErrors.name && <p className={styles.error}>*{formErrors.name}</p>}
           </div>
 
           <div className={styles.field}>
@@ -168,8 +167,9 @@ const Register = () => {
               type="text"
               placeholder="Email id"
               onChange={handleChange}
+              className={styles.namer}
             />
-            {formErrors.email && <p className={styles.error}>{formErrors.email}</p>}
+            {formErrors.email && <p className={styles.error}>*{formErrors.email}</p>}
           </div>
 
           <div className={styles.field}>
@@ -180,8 +180,9 @@ const Register = () => {
               type="text"
               placeholder="Mobile no."
               onChange={handleChange}
+              className={styles.namer}
             />
-            {formErrors.phone && <p className={styles.error}>{formErrors.phone}</p>}
+            {formErrors.phone && <p className={styles.error}>*{formErrors.phone}</p>}
           </div>
 
           <div className={styles.field}>
@@ -192,8 +193,9 @@ const Register = () => {
               type="password"
               placeholder="Password"
               onChange={handleChange}
+              className={styles.namer}
             />
-            {formErrors.password && <p className={styles.error}>{formErrors.password}</p>}
+            {formErrors.password && <p className={styles.error}>*{formErrors.password}</p>}
           </div>
 
           <div className={styles.field}>
@@ -204,6 +206,7 @@ const Register = () => {
               type="password"
               placeholder="Confirm Password"
               onChange={handleChange}
+              className={styles.namer}
             />
             {formErrors.confirmPassword && (
               <p className={styles.error}>{formErrors.confirmPassword}</p>
@@ -211,14 +214,14 @@ const Register = () => {
           </div>
         </div>
         <div className={styles.bns}>
-          <button disabled={loading} type="submit">
+          <button disabled={loading} type="submit" className={styles.regger}>
             {loading ? 'Loading...' : 'Register'}
           </button>
         
           <div className={styles.alr}>
             Already have an account?
-            <button className={styles.link} onClick={logger}>
-             Sign up
+            <button className={styles.link} onClick={logger}  >
+        login
             </button>
           </div>
         </div>
@@ -227,12 +230,15 @@ const Register = () => {
 
 
     <div><img src={sky1} className={styles.skyy} /></div>
-    <div className={styles.jms}>   <h1 className={styles.tdy1}>Join us Today!</h1></div>
-
-    <div className={styles.cu2}><img src={cu1} className={styles.cu3}/></div>
+ 
 
 
-    <div className={styles.logres}>
+
+  
+      <div className={styles.smj3}>Join us Today!</div>
+      
+  <div className={styles.cu2}><img src={cu1} className={styles.cu3}/></div> 
+  <div className={styles.logres}>
         <button
           className={`${styles.regi} ${selectedButton === 'regi' ? styles.selected : ''}`}
           onClick={() => handleButtonClick('regi','/register')}

@@ -6,6 +6,7 @@
 
   color: white;
   margin-top: 5%;
+  margin-left: 35%;
 }
 
 h2 {
@@ -22,6 +23,9 @@ h2 {
 .inputGroup {
   position: relative; /* Make the container of the input a positioning context */
   margin-bottom: 47px;
+
+  margin-bottom: 8px;
+  
   
 }
 
@@ -37,11 +41,13 @@ h2 {
   margin-left: -90%;
 }
 .inputGroup input {
-  width: 80%;
-  padding: 10px 10px 10px 30px; /* Add padding to the left to create space for the lock icon */
+  width: 75%;
+ /* Add padding to the left to create space for the lock icon */
   font-size: 14px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-left: 10%;
+  height: 3.5vh;
+
 }
 
 .loc {
@@ -54,14 +60,18 @@ h2 {
 }
 
 .updateButton {
-  background: #007bff;
+
   color: #fff;
   border: none;
-  padding: 10px 15px;
+
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 1.3em;
   cursor: pointer;
-  margin-left: 20%;
+  margin-left: 10%;
+  width: 80%;
+  height: 7vh;
+  margin-top: 10%;
+  
 }
 
 .updateButton:hover {
@@ -76,16 +86,73 @@ h2 {
   height: 20px;
 }
 
+.delers{
+  margin-top: -10%;
+}
+
+
 .deleteButton {
   background-color: red;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 10px 15px;
+
+  border-radius: 10px;
+  font-size: 1.3em;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
+  margin-left: 10%;
+  width: 80%;
+  height: 7vh;
+  
 }
 
 .deleteButton:hover {
   background-color: darkred;
+}
+
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Buttons for modal */
+.confirmDeleteButton,
+.cancelDeleteButton {
+ width: 150px;
+ padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmDeleteButton {
+  color: white;
+  font-size: 1.2em;
+}
+
+.cancelDeleteButton {
+  background-color: rgb(208, 206, 206);
+  color: white;
+  font-size: 1.2em;
 }

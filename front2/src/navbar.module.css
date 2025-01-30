@@ -10,7 +10,7 @@
     text-decoration: none;
     height: 6vh;
     border-bottom: 1px solid rgb(66, 66, 66);
-    height: 100vw;
+    height: 100vh;
     font-family: 'Manrope';
    
   }
@@ -229,3 +229,121 @@ margin-left: 12%;
   width: 120px;
  
 }
+
+@media (max-width: 768px) {
+  .navbar, .navbar2 {
+    width: 100%;
+    position: relative; /* Remove fixed positioning */
+    height: auto;
+    margin-top: -60%;
+  }
+
+  .navbar {
+    margin-top: 0;
+    font-size: 0.7em;
+  
+  }
+  
+  .cul2{
+
+width: 40px;
+margin-top: -3%;
+
+  }
+  .navbar {
+   
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: -30%;
+    height: 20vh;
+  }
+
+  .navLinks, .navLinks2 {
+    flex-direction:row;
+    align-items: center;
+    text-align: center;
+   
+  }
+
+  .navLinks{
+  
+  margin-left: 12%;
+
+  }
+
+.link{
+
+  font-size: 1em;
+  
+}
+.navbar2{
+  width: 100%;
+  margin-left: 1%;
+  font-size: 0.4em;
+  margin-top: -15%;
+ 
+}
+  .srch {
+    width: 40%;
+    margin: 10px auto;
+    margin-left: -65%;
+    font-size: 0.6em;
+    background-size: 1px; 
+    height: 1vh;
+   
+  }
+
+  .userCircle{
+    width: 20px;
+    height: 20px;
+   
+  }
+
+  .uci{
+    margin-left: -3.3%;
+  }
+
+
+  .newcre {
+   width: 30px;
+   height: 5vh;
+   font-size: 0.3em;
+   margin-left: -50%;
+  
+  }
+
+  .userCircle {
+    margin: 10px auto;
+  }
+  .dasher3{
+    padding: 10px;
+
+  }
+
+  .activeLink {
+background-color: #EFF6FF;
+font-display: none;
+padding: 3px;
+width: 50px;
+color: #EFF6FF;
+font-size: 0.1em;
+     }
+     
+
+     .setti2{
+     padding: 10px;
+     }
+
+     .linkset{
+      font-size: 1em;
+      margin-left: 50%;
+     }
+
+     .setter{
+      margin-top: 1%;
+      margin-left: 10%;
+     }
+
+}
+/* Mobile View - Hide Full Navbar & Use Burger Menu */

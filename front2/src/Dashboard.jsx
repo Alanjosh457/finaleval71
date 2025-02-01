@@ -105,6 +105,7 @@ const Dashboard = () => {
               data={clicksByDate}
               layout="vertical"
               margin={{ top: 10, right: 50, left: 50, bottom: 10 }}
+              className={styles.br1}
             >
               <YAxis
                 type="category"
@@ -122,6 +123,7 @@ const Dashboard = () => {
                   fill="#333"
                   fontSize={17}
                   fontWeight="bold"
+                  className={styles.br2}
                 />
               </Bar>
             </BarChart>

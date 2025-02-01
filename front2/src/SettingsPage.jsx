@@ -116,11 +116,12 @@ const SettingsPage = () => {
 
   return (
     <>
+    
       <div className={styles.container}>
         <h2>Settings</h2>
         <form onSubmit={handleUpdate} className={styles.form}>
           <div className={styles.inputGroup}>
-            <input
+       <p className={styles.lbls1}> Name  </p>  <input
               type="text"
               id="name"
               value={name}
@@ -129,7 +130,7 @@ const SettingsPage = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <input
+          <p className={styles.lbls1}> Email id </p> <input
               type="email"
               id="email"
               value={email}
@@ -138,7 +139,7 @@ const SettingsPage = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <input
+          <p className={styles.lbls1}> Mobile no.  </p><input
               type="text"
               id="phone"
               value={phone}
@@ -194,6 +195,8 @@ const SettingsPage = () => {
           </div>
         </div>
       )}
+
+   
     </>
   );
 };

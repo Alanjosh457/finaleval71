@@ -239,7 +239,7 @@ margin-left: 12%;
   }
 
   .navbar {
-    margin-top: 0;
+  
     font-size: 0.7em;
   
   }
@@ -258,6 +258,10 @@ margin-top: -3%;
     margin-top: -30%;
     height: 20vh;
   }
+  .navLinks2{
+   
+  }
+
 
   .navLinks, .navLinks2 {
     flex-direction:row;
@@ -269,6 +273,7 @@ margin-top: -3%;
   .navLinks{
   
   margin-left: 12%;
+  margin-top: 60%;
 
   }
 

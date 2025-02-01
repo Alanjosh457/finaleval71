@@ -134,11 +134,7 @@ const Register = () => {
    }
     
 
-  const ploy= 'http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767584/ykolh3no0ivxqcmbq4pc.png'
-  const ec1='http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767176/roxkkw7grqhih6kcrkft.png'
-  const ec2='http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767194/ndewihg0hapkrfrzfnfj.png'
-  const arr='http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767230/qs1gcvgaith7sjyzdfpj.png'
-  const gi='http://res.cloudinary.com/dgkcgjcw5/image/upload/v1734767401/va2rrv1gxdbsdr3fsamg.png'
+  
   return (
     <>
  

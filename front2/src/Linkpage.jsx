@@ -215,7 +215,12 @@ const Linkpage = () => {
       .replace(',', '');
   };
 
+  const handleDeleteClick = (url) => {
+    setSelectedUrl(url);
+    toggleDeleteModal(); // Open the delete confirmation modal
+  };
 
+  
   const clearForm = () => {
     setDestinationUrl('');
     setRemarks('');

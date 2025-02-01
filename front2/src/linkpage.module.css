@@ -782,6 +782,7 @@ width: 70px;
 
 .pagination{
   margin-left: 30%;
+ 
 }
 
 input[type="datetime-local"] {
@@ -794,9 +795,44 @@ input[type="datetime-local"] {
 
 
 
+.modalContent2{
 
 
+  width: 60%; /* Adjusted width for mobile */
+    max-width: 200px;
+    padding: 20px;
+    margin-left: -72%;
+    margin-top: -155%;
+    height: 20vh;
+    padding: 20px;
+    padding-bottom: 70px;
+}
 
+
+.modalContent2 button:first-of-type {
+  background-color: #304ec6;
+  color: white;
+  width: 60px;
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+.modalContent2 button:first-of-type:hover {
+  background-color: #288dd6;
+}
+
+.modalContent2 button:last-of-type {
+  background-color: #f1f1f1;
+  color: #333;
+  width: 60px;
+  font-size: 0.8em;
+  padding: 10px;
+
+}
+
+.modalContent2button:last-of-type:hover {
+  background-color: #e2e2e2;
+}
 
 
 }
@@ -806,43 +842,33 @@ input[type="datetime-local"] {
 
 /* Mobile Query for Table */
 @media (max-width: 768px) {
+
+
   .urlTableContainer {
     width: 100%;
     overflow-x: auto;
+    margin-top: 50%;
   }
 
   .urlTable {
-    width: 100%;
-    border-collapse: collapse;
+    width: 50%;
+    border-collapse: collapse; /* Removes gaps between table cells */
+    background-color: #ffffff; /* White background */
+   
   }
-
-  .urlTable thead {
-    display: none; /* Hide table headers on mobile */
-  }
-
-  .urlTable tbody tr {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-
+  
+  .urlTable th,
   .urlTable td {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    font-size: 1rem;
-    border-bottom: 1px solid #ddd;
+    text-align: left;
+   ; /* Spacing for better readability */
+    font-size: 0.7em;
+    color: #333333;
+    border-bottom: 1px solid #f2f2f2; /* Subtle row dividers */
+    padding: 5px;
+   width: 1%;
   }
 
-  .urlTable td:before {
-    content: attr(data-label);
-    font-weight: bold;
-  }
 
-  .copyButton img {
-    width: 20px;
-    height: 20px;
-  }
+
+  
 }

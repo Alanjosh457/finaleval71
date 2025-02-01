@@ -350,5 +350,79 @@ font-size: 0.1em;
       margin-left: 10%;
      }
 
+
+
+     .dropdownMenu {
+      position: absolute;
+      top: 50px;
+   
+      background-color: rgb(228, 0, 0);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     
+      z-index: 1000;
+      min-width: 100px;
+      margin-top: 2%;
+      justify-content: center;
+      width: 10px;
+    }
+    
+    .logoutButton {
+      background: none;
+      border: none;
+      color: rgb(149, 149, 149);
+      font-size: 1.5em;
+      padding: 8px 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      margin-left: -5%;
+      
+    }
+    
+    .logoutButton:hover {
+      background-color: #545454;
+    }
+
+
+
+
+
+
+
+
+
+
 }
 
+.dropdownMenu {
+  position: absolute;
+  top: 50px;
+margin-left: 5%;
+  background-color: rgb(246, 246, 246);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  min-width: 100px;
+  margin-top: 2%;
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: rgb(149, 149, 149);
+  font-size: 1.5em;
+  padding: 8px 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-left: -5%;
+  
+}
+
+.logoutButton:hover {
+  background-color: #f8f8f8;
+}

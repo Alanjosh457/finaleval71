@@ -19,7 +19,7 @@ const Navbar = () => {
   const [greeting, setGreeting] = useState('Good morning');
   const [currentDate, setCurrentDate] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
@@ -91,6 +91,13 @@ const Navbar = () => {
     navigate(`/link/${user._id}/`, { state: { isModalOpen: true } }); // Navigate to /link and pass modal state
   };
 
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <>
       <img src={cul1} className={styles.cul2} />
@@ -156,9 +163,20 @@ const Navbar = () => {
               onChange={handleSearchChange}
             />
           </li>
-          <li className={styles.uci}>
-            {/* Circle with initials */}
-            <div className={styles.userCircle} >{userInitials}</div>
+          <li
+            className={styles.uci}
+            onMouseEnter={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
+          >
+            <div className={styles.userCircle}>{userInitials}</div>
+
+            {showDropdown && (
+              <div className={styles.dropdownMenu}>
+                <button className={styles.logoutButton} onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            )}
           </li>
         </ul>
       </nav>

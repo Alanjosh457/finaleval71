@@ -439,7 +439,8 @@ const Linkpage = () => {
           <tbody>
             {paginatedUrls.map((url) => (
               <tr key={url.shortenedKey}>
-                <td>{formatDate(url.createdAt)}</td>
+            <td>{url.expirationDate ? formatDate(url.expirationDate) : 'No Expiry'}</td>
+
                 <td className={styles.shortenedText}>{url.originalUrl}</td>
                 <td className={styles.shortenedText2}>
                   <a
